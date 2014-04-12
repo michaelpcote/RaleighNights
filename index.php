@@ -9,23 +9,19 @@
     <?php require_once("navigation.php"); ?>
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">The Title of an Article</div>
-          <div class="contentText"><p>You may use this template on any site, anywhere, for free just please leave the link back to me in the footer.   This template validates XHTML Strict 1.0, CSS Validates as well; enjoy :) </p><br />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer mi. Vivamus sit amet neque vitae sapien bibendum sodales. Curabitur elementum. Duis imperdiet. Donec eleifend porttitor sapien. Praesent leo. Quisque auctor velit sed tellus. Suspendisse potenti. Aenean laoreet imperdiet nunc. Donec commodo suscipit dolor. Aenean nibh. Sed id odio. Aliquam lobortis risus ut felis. Sed vehicula pellentesque quam.</p><br />
-          <p>Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh, dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue, turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.</p></div>
+        	<div class="contentTitle">About Raleigh Nights</div>
+          <div class="contentText"><p>Raleigh Nights allows Raleigh residents and visitors to see Raleigh drink specials, Raleigh food specials, and Raleigh events for each day. Each day they log on the application will show them that days specials in order to bring users the most up to date deals and events in their area. Users can see the food specials, drink specials, or events closest to them or sort the list alphabetically. Although we do sort by location, we do not keep any data whatsoever on the user or their location. They are also able to search for only food specials, only drink special, or only events, or any combination thereof.</p><br />
+<p>Raleigh Nights also wants to put Raleigh restaurant and Raleigh bar owners directly in touch with their patrons in order to bring the best value to all Raleigh residents. Raleigh bar and restaurant owners can interact directly with their customers by uploading their Raleigh drink specials, Raleigh food specials, and Raleigh events into the Raleigh Nights website. This creates a dynamic interaction between owners and patrons and creates a fantastic value for both parties. Raleigh Nights wants to create an environment in which Raleigh residents and visitors can directly reach their target audience and create a single place that they can go to check out the best specials and events in their area on any given day.</p><br />
+<p>Finally, Raleigh Nights can simply be used navigate to any bar in Raleigh. If you simply don't want to have to enter in the bars address into your navigation, just open Raleigh Nights and click on the address to the bar and it will take you right from your location to the restaurant or bar of your choice. Thanks for choosing Raleigh Nights!</p></div>
 
-        
-        <div class="contentTitle">So Many Titles, So Little Time.</div>
-            <div class="contentText"><p>You may use this template on any site, anywhere, for free just please leave the link back to me in the footer.   This template validates XHTML Strict 1.0, CSS Validates as well; enjoy :) </p><br />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer mi. Vivamus sit amet neque vitae sapien bibendum sodales. Curabitur elementum. Duis imperdiet. Donec eleifend porttitor sapien. Praesent leo. Quisque auctor velit sed tellus. Suspendisse potenti. Aenean laoreet imperdiet nunc. Donec commodo suscipit dolor. Aenean nibh. Sed id odio. Aliquam lobortis risus ut felis. Sed vehicula pellentesque quam.</p><br />
-          <p>Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh, dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue, turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.</p></div>
-        
-        
-        <div class="contentTitle">Yet Another  One!</div>
-          <div class="contentText"><p>You may use this template on any site, anywhere, for free just please leave the link back to me in the footer.   This template validates XHTML Strict 1.0, CSS Validates as well; enjoy :) </p><br />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer mi. Vivamus sit amet neque vitae sapien bibendum sodales. Curabitur elementum. Duis imperdiet. Donec eleifend porttitor sapien. Praesent leo. Quisque auctor velit sed tellus. Suspendisse potenti. Aenean laoreet imperdiet nunc. Donec commodo suscipit dolor. Aenean nibh. Sed id odio. Aliquam lobortis risus ut felis. Sed vehicula pellentesque quam.</p><br />
-          <p>Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh, dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue, turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.</p></div>
-        </div>
+<div class="contentTitle">Who We Are</div>
+<div class="contentText"><p>Raleigh Nights is being developed by two North Carolina State University Computer Science seniors who like great beer and food at cheap prices.</p></div>
 
-    </div>
-        <?php require_once("footer.php"); ?>
+<div class="contentTitle">Get It For Yourself!</div>
+<div class="contentText"><p>Raleigh Nights is currently available for Android devices and can be found on the Google Play store! </p><br />
+<p><a href="https://play.google.com/store/apps/details?id=info.raleighnights" target="_blank"><img src="jpg/google_play.jpg" alt="Google Play" width="150" height="85"></a></p></div>
+
+</div>
+</div>
+
+<?php require_once("footer.php"); ?>

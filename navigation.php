@@ -9,7 +9,8 @@
         <div class="topNaviagationLink"><a href="admin-verifiy-person.php">Verify Individual</a></div>
 	 <?php } else if ( isset($_SESSION['user_type'] ) ) { ?>
     	<div class="topNaviagationLink"><a href="index.php">Home</a></div>
-        <div class="topNaviagationLink"><a href="raleigh-restaurants-and-bars.php">Claim Your Business</a></div>
+        <div class="topNaviagationLink"><a href="raleigh-restaurants-and-bars.php">Claim a Business</a></div>
+        <div class="topNaviagationLink"><a href="restaurant-and-bar-lists.php">Your Places</a></div>
         <div class="topNaviagationLink"><a href="edit-drink-specials.php">Drink Specials</a></div>
         <div class="topNaviagationLink"><a href="edit-food-specials.php">Food Specials</a></div>
         <div class="topNaviagationLink"><a href="edit-events.php">Events</a></div>

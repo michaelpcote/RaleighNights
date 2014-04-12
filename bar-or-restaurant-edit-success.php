@@ -6,7 +6,7 @@
 	<?php require_once("welcome-login.php"); ?>
 </head>
 <body>
-    <?php require_once("owner-navigation.php"); ?>
+    <?php require_once("navigation.php"); ?>
         <div class="contentBox">
     	<div class="innerBox">
         	<div class="contentTitle">Successful Edit!</div>

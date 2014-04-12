@@ -1,4 +1,5 @@
 <?php
+	require_once('Common.php');
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 	if ( isset( $_POST['recaptcha_response_field'] ) ) {
@@ -38,17 +39,17 @@
  	if ( strpos($response, 'true') !== false ) {
 		//
 	} else {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
+		//header("Location: ".$_SERVER['HTTP_REFERER']);
 	}
 }
 	$conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
 	$query_firm = "INSERT INTO firm ( firm_type, name, phone, address, city, state, zip ) VALUES ( ?, ?, ?, ?, ?, ?, ? )";
-	$query_user = "INSERT INTO users ( email, first_name, last_name, user_type, firm_id ) VALUES ( ?, ?, ?, ?, ? )";
+	$query_user = "INSERT INTO users ( email, password, first_name, last_name, user_type, phone ) VALUES ( ?, ?, ?, ?, ?, ? )";
 	$select_user = "SELECT email FROM users where email = ?";
-	$user_firm = "INSERT INTO user_firms ( email, firm_id ) VALUES ( ?, ? )";
+	$user_firm = "INSERT INTO user_firms ( email, firm_id, confirmation_code ) VALUES ( ?, ?, ? )";
 	
 	if ($stmt = mysqli_prepare($conn, $query_firm) ) {
-		$stmt->bind_param("issssss", $_POST['firm_type'], $_POST['company'], $_POST['phone'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip']);
+		$stmt->bind_param("issssss", $_POST['firm_type'], $_POST['company'], $_POST['bus_phone'], $_POST['address'], $_POST['city'], $_POST['state'], $_POST['zip']);
 		$stmt->execute();
 		$firm_id = $stmt->insert_id;
 	} else {
@@ -63,11 +64,12 @@
 		$result = $stmt->get_result();
 		if ( !$myrow = $result->fetch_assoc() ) {
 			if ( $stmt = mysqli_prepare($conn, $query_user) ) {
-				$stmt->bind_param("sssii", $_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['employee_type'], $firm_id );
+				$stmt->bind_param("ssssis", $_POST['email'], hash('sha256',$_POST['password']), $_POST['first_name'], $_POST['last_name'], $_POST['employee_type'], $_POST['phone'] );
 				$stmt->execute();
 			}
 		}
-	}
+	} 
+	
 	$drinks = "drink_specials";
 	$food = "food_specials";
 	$events = "events";
@@ -92,8 +94,11 @@
 			$stmt->execute();
 		}
 	}
+	$valid = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$code = Common::get_random_string($valid, 5);
+	echo $code;
 	if ( $stmt = mysqli_prepare($conn, $user_firm) ) {
-		$stmt->bind_param("ss", $_POST['email'], $firm_id );
+		$stmt->bind_param("sss", $_POST['email'], $firm_id, $code );
 		$stmt->execute();
 		header("Location: new-restaurant-thanks.php");
 	} else {

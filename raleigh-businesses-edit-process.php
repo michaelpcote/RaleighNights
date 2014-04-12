@@ -14,10 +14,15 @@
 						  $_POST['tuesday_open'], $_POST['tuesday_close'], $_POST['wednesday_open'], $_POST['wednesday_close'], $_POST['thursday_open'], 
 						  $_POST['thursday_close'], $_POST['friday_open'], $_POST['friday_close'], $_POST['saturday_open'], $_POST['saturday_close'], 
 						  $_POST['sunday_open'], $_POST['sunday_close'], $_SESSION['firm_id'] );
-			$stmt->execute();
-			ob_clean();
-			header("Location: bar-or-restaurant-edit-success.php");
-			mysqli_close($conn);
-			exit();
+			if ( $stmt->execute() ) {
+				ob_clean();
+				mysqli_close($conn);
+				header("Location: bar-or-restaurant-edit-success.php");
+				exit();
+			} else {
+				ob_clean();
+				mysqli_close($conn);
+				header("Location: ".$_SERVER['HTTP_REFERER']);
+			}
 	}
 ?>

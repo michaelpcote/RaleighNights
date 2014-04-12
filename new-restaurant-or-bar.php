@@ -12,18 +12,17 @@
         	<div class="contentTitle">Create a new Raleigh Nights bar or restaurant</div>
             <div class="contentText">
             	<br />
-            	<p>Thank you for being a part of Raleigh Nights! After you enter in your information, you will receive a call at your
+            	<p>Thank you for being a part of Raleigh Nights! If you are a new user, please fill out all of the information below. If you
+                are a returning user, please <a href="raleigh-nights-login.php">log in</a> first. If you are not logged in, no changes will be
+                made to your personal information. The restaurant or bar will, however, still be linked to your account.</p> <br />
+                <p>After you enter in your information, you will receive a call at your
                 place of business with a confirmation code. You can use your email and the confirmation code to log in and start interacting
                 with your patrons!</p> <br />
-            <form action="new-restaurant-process.php" method="post" id="add-a-new-restuant-or-bar">
+            <form action="new-restaurant-process.php"onsubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
-						<legend>New Business Information</legend>
+						<legend>Personal Information</legend>
                         <div class="field">
-							<label for="company" class="required">Company Name:</label>
-							<input type="text" name="company" id="company" maxlength="100" class="textfield required" value="" required />
-						</div>
-						<div class="field">
 							<label for="first_name" class="required">First Name:</label>
 							<input type="text" name="first_name" id="first_name" maxlength="100" class="textfield required" value="" required />
 						</div>
@@ -36,16 +35,35 @@
 							<input type="text" name="email" id="email" maxlength="100" class="large email textfield required" value="" required />
 						</div>
                         <div class="field">
+							<label for="phone" class="required">Phone:</label>
+							<input type="text" name="phone" id="phone" maxlength="15" class="medium textfield" value="" required />
+						</div>
+                        <div class="field">
 							<label for="password" class="required">Password:</label>
 							<input type="text" name="password" id="password" maxlength="100" class="large email textfield required" value="" required />
 						</div>
                         <div class="field">
-							<label for="conf_password" class="required">Password:</label>
-							<input type="text" name="password" id="password" maxlength="100" class="large email textfield required" value="" required />
+							<label for="conf_password" class="required">Retype Password:</label>
+							<input type="text" name="conf_password" id="conf_password" maxlength="100" class="large email textfield required" value="" required />
 						</div>
+                         <div class="field">
+                        	<label for="employee_type" class="required">Are you a(n):</label>
+							<select name="employee_type" id="employee_type" maxlength="20" >
+                            	<option value="2">Owner</option>
+                                <option value="3">Manager</option>
+                                <option value="4">Other Employee</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <legend>Business Information</legend>
+                    <fieldset>
                         <div class="field">
-							<label for="phone" class="required">Phone:</label>
-							<input type="text" name="phone" id="phone" maxlength="15" class="medium textfield" value="" required />
+							<label for="company" class="required">Company Name:</label>
+							<input type="text" name="company" id="company" maxlength="100" class="textfield required" value="" required />
+						</div>
+						<div class="field">
+							<label for="bus_phone" class="required">Business Phone:</label>
+							<input type="text" name="bus_phone" id="bus_phone" maxlength="15" class="medium textfield" value="" required />
 						</div>
                         <div class="field">
 							<label for="address" class="required">Street Address:</label>
@@ -91,7 +109,7 @@
                                 <option value="NJ">NJ</option>
                                 <option value="NM">NM</option>
                                 <option value="NY">NY</option>
-                                <option value="NC">NC</option>
+                                <option value="NC" selected>NC</option>
                                 <option value="ND">ND</option>
                                 <option value="OH">OH</option>
                                 <option value="OK">OK</option>
@@ -122,15 +140,7 @@
                                 <option value="2">No</option>
                             </select>
 						</div>
-                        <div class="field">
-                        	<label for="employee_type" class="required">Are you a(n):</label>
-							<select name="employee_type" id="employee_type" maxlength="20" >
-                            	<option value="2">Owner</option>
-                                <option value="3">Manager</option>
-                                <option value="4">Other Employee</option>
-                            </select>
-                        </div>
-                        <iframe id="recaptcha_iframe" src="direct/iframe.php" height="300" width="500"frameborder="0"></iframe>
+                       	<iframe id="recaptcha_iframe" src="direct/iframe.php" height="300" width="500"frameborder="0"></iframe>
                             <input type="hidden" id="recaptcha_response_field" name="recaptcha_response_field" value="" >
                             <input type="hidden" id="recaptcha_challenge_field" name="recaptcha_challenge_field" value="" >
                             	<script>
@@ -143,7 +153,16 @@
 					<div class="buttons">
 						<input type="submit" name="submit" id="submit" class="submit" value="Submit" />
 					</div>
-				</form>			
+				</form>	
+                <script>
+				 function validateForm() {
+					if (password.value != conf_password.value) { 
+					   alert("Your password and confirmation password do not match.");
+					   cpassword.focus();
+					   return false; 
+					}
+				}
+				</script>		
 			</div>
 		 </div>
         <?php require_once("footer.php"); ?>

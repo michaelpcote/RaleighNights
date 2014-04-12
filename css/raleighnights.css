@@ -3,6 +3,7 @@
 form { margin:0 20px 20px 20px; }
 fieldset { clear:both; border:solid #333; border-width:1px 0 0 0; padding:0.5em 1em 1.5em 1em; }
 legend { padding:0 0.25em .5em 0.25em; font-size:1.3em; font-weight:bold; color:#333; }
+verifylegend { padding:0 0.25em .5em 0.25em; font-size:1em; font-weight:bold; color:#333; }
 label { font-size:1.1em; color:#333; }
 label.validation-error { background-color: #FF6; }
 option { padding:0 3px; }

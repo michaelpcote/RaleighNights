@@ -39,13 +39,21 @@
 				$saturday_close = Common::checkString($row['saturday_close']);
 				$sunday_open = Common::checkString($row['sunday_open']);
 				$sunday_close = Common::checkString($row['sunday_close']);
+				$verified = $row['verified'];
 				mysqli_close($conn);
 			}
 			?>
             <div class="contentText">
             	<br />
             	<p>Please ensure that all of the information for <em><strong><?php echo $name?></strong></em> is correct! Use the navigation at the top
-                of the page to edit the drink specials, food specials, and events at your restau</p> <br />
+                of the page to edit the drink specials, food specials, and events at your restaunt</p> <br />
+                <?php if ( $verified ) { ?>
+                	<p>Congratulations, <em><strong><?php echo $name?></strong></em> has been verified! You should be able to see it on the Raleigh Nights app.</p><br />
+                <?php } else { ?>
+                	<p>We're sorry, <em><strong><?php echo $name?></strong></em> has been not yet been verified. You are able to edit the information right now,
+                    but will be unable to see <?php echo $name?> on Raleigh Nights yet. If you think that this is taking longer than it should, please feel
+                    free to <a href="contact-us.php">contact us</a> and we will respond as quickly as we can!</p><br />
+                <?php } ?>
             <form action="raleigh-businesses-edit-process.php" method="post" id="claim-me">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
@@ -132,59 +140,59 @@
 							<input type="text" name="zip" id="state" maxlength="100" class="large email textfield required" value="<?php echo $city?>" required />
 						</div>
                         <div class="field">
-							<label for="monday_open" class="required">Monday Open:</label>
+							<label for="monday_open" >Monday Open:</label>
 							<input type="text" name="monday_open" id="monday_open" maxlength="100" class="medium textfield required" value="<?php echo $monday_open?>" />
 						</div>
                         <div class="field">
-							<label for="monday_close" class="required">Monday Close:</label>
+							<label for="monday_close" >Monday Close:</label>
 							<input type="text" name="monday_close" id="monday_close" maxlength="100" class="medium textfield required" value="<?php echo $monday_close?>" />
 						</div>
                         <div class="field">
-							<label for="tuesday_open" class="required">Tuesday Open:</label>
+							<label for="tuesday_open" >Tuesday Open:</label>
 							<input type="text" name="tuesday_open" id="tuesday_open" maxlength="100" class="medium textfield required" value="<?php echo $tuesday_open?>" />
 						</div>
                         <div class="field">
-							<label for="tuesday_close" class="required">Tuesday Close:</label>
+							<label for="tuesday_close" >Tuesday Close:</label>
 							<input type="text" name="tuesday_close" id="tuesday_close" maxlength="100" class="medium textfield required" value="<?php echo $tuesday_close?>" />
 						</div>
                         <div class="field">
-							<label for="wednesday_open" class="required">Wednesday Open:</label>
+							<label for="wednesday_open" >Wednesday Open:</label>
 							<input type="text" name="wednesday_open" id="wednesday_open" maxlength="100" class="medium textfield required" value="<?php echo $wednesday_open?>"/>
 						</div>
                         <div class="field">
-							<label for="wednesday_close" class="required">Wednesday Close:</label>
+							<label for="wednesday_close" >Wednesday Close:</label>
 							<input type="text" name="wednesday_close" id="wednesday_close" maxlength="100" class="medium textfield required" value="<?php echo $wednesday_close?>"/>
 						</div>
                         <div class="field">
-							<label for="thursday_open" class="required">Thursday Open:</label>
+							<label for="thursday_open" >Thursday Open:</label>
 							<input type="text" name="thursday_open" id="thursday_open" maxlength="100" class="medium textfield required" value="<?php echo $thursday_open?>" />
 						</div>
                         <div class="field">
-							<label for="thursday_close" class="required">Thursday Close:</label>
+							<label for="thursday_close" >Thursday Close:</label>
 							<input type="text" name="thursday_close" id="thursday_close" maxlength="100" class="medium textfield required" value="<?php echo $thursday_close?>"/>
 						</div>
                         <div class="field">
-							<label for="friday_open" class="required">Friday Open:</label>
+							<label for="friday_open" >Friday Open:</label>
 							<input type="text" name="friday_open" id="friday_open" maxlength="100" class="medium textfield required" value="<?php echo $friday_open?>" />
 						</div>
                         <div class="field">
-							<label for="friday_close" class="required">Friday Close:</label>
+							<label for="friday_close" >Friday Close:</label>
 							<input type="text" name="friday_close" id="friday_close" maxlength="100" class="medium textfield required" value="<?php echo $friday_close?>" />
 						</div>
                         <div class="field">
-							<label for="saturday_open" class="required">Saturday Open:</label>
+							<label for="saturday_open" >Saturday Open:</label>
 							<input type="text" name="saturday_open" id="saturday_open" maxlength="100" class="medium textfield required" value="<?php echo $saturday_open?>" />
 						</div>
                         <div class="field">
-							<label for="saturday_close" class="required">Saturday Close:</label>
+							<label for="saturday_close" >Saturday Close:</label>
 							<input type="text" name="saturday_close" id="saturday_close" maxlength="100" class="medium textfield required" value="<?php echo $saturday_close?>"/>
 						</div>
                         <div class="field">
-							<label for="sunday_open" class="required">Sunday Open:</label>
+							<label for="sunday_open" >Sunday Open:</label>
 							<input type="text" name="sunday_open" id="sunday_open" maxlength="100" class="medium textfield required" value="<?php echo $sunday_open?>" />
 						</div>
                         <div class="field">
-							<label for="sunday_close" class="required">Sunday Close:</label>
+							<label for="sunday_close" >Sunday Close:</label>
 							<input type="text" name="sunday_close" id="sunday_close" maxlength="100" class="medium textfield required" value="<?php echo $sunday_close?>" />
 						</div>
 					</fieldset>

@@ -15,13 +15,7 @@
         	<div class="contentTitle">Restaurants and Bars in Raleigh</div>
             <?php
             $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
-			$query = "";
-			if ( $_SESSION['user_type'] == 1 ) {
-				$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f ORDER BY f.name";
-			} else {
-				$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f, user_firms uf WHERE f.verified = 1 AND ";
-				$query .= "uf.email = 'michaelpcote@gmail.com' AND f.firm_id = uf.firm_id ORDER BY f.name";
-			}
+			$query = "SELECT f.firm_id, f.name, f.phone, f.website, f.address, f.city FROM firm f WHERE f.verified = 0 ORDER BY f.name";
 			$result = $conn->query($query);
 			?>
           <div class="contentText">
@@ -45,24 +39,26 @@
 					form.submit();
 				}
 		  </script>
-          <form action="admin-business-delete-process.php" method="post" id="delete">
+          <form action="verify-business-process.php" method="post" id="delete">
           	<legend>Delete or Edit Businesses</legend>
               <table>
                 <tr>
                     <th>Business Name</th>
                     <th>Phone Number</th>
+                    <th>Website</th>
                     <th>Address</th>
-                    <th>Claim Me</th>
-                    <th>Delete</th>
+                    <th>City</th>
+                    <th>Verify</th>
                 </tr>
                 <?php 
                 while ( $row = $result->fetch_assoc() ) {
                     echo "<tr>";
                     echo "<td>".$row['name']."</td>";
                     echo "<td>".$row['phone']."</td>";
+					echo "<td>".$row['website']."</td>";
                     echo "<td>".$row['address']."</td>";
-                   	echo "<td><input type='button' onClick = 'editClick(".$row['firm_id'].")' value='Edit'</input></td>";
-					echo "<td><input type='checkbox' name='delete[]' value=".$row['firm_id'].">Delete</input></td>";
+					echo "<td>".$row['city']."</td>";
+                   	echo "<td><input type='checkbox' name='verified[]' value=".$row['firm_id']."> Verified</input></td>";
                     echo "</tr>";
                 }
                 mysqli_close($conn);
