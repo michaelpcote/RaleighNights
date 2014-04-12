@@ -18,13 +18,32 @@ input.large { width:175px; }
 div.field { clear:both; margin-bottom:0.3em; overflow:hidden; min-height:0; }
 span.required, label.required { font-weight:bold; }
 div.field label { display:block; float:left; width:140px; padding:0.2em 0.5em; text-align:right; }
+.overlimit { color: red; }
 
+
+/*Basic page layouts */
 .new_business {
 	text-align:center;
 	font-size:18px;
 	font-family:"Times New Roman", Times, serif;
 }
-	
+
+.login a:link{
+    position:absolute;
+    top:20px;
+    right:20px;
+	color:white;
+}
+
+.login a:visited {color:white;}
+
+.welcome {
+    position:absolute;
+    top:40px;
+    right:20px;
+	color:white;
+}
+
 
 body {
 	margin: 0;

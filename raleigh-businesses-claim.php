@@ -1,25 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/raleighnights.css" />
-<title>Raleigh Nights</title>
-</head>
+<?php
+	require_once("conf.php");
+?>
 
+<title>Raleigh Nights</title>
+	<?php require_once("welcome-login.php"); ?>
+</head>
 <body>
-    <div id="page">
-        <div class="topNaviagationLink"><a href="index.php">Home</a></div>
-        <div class="topNaviagationLink"><a href="raleigh-restaurants-and-bars.php">Claim Your Business</a></div>
-        <div class="topNaviagationLink"><a href="index.html">Drink Specials</a></div>
-        <div class="topNaviagationLink"><a href="index.html">Food Specials</a></div>
-	    <div class="topNaviagationLink"><a href="index.html">Events</a></div>
-	</div>
-    <div id="mainPicture">
-    	<div class="picture">
-        	<div id="headerTitle">Raleigh Nights</div>
-            <div id="headerSubtext">Connecting Restaurants and Bars with their Patrons</div>
-        </div>
-    </div>
+    <?php require_once("navigation.php"); ?>
         <div class="contentBox">
     	<div class="innerBox">
         	<div class="contentTitle">Thanks for claiming your business!</div>
@@ -82,9 +69,9 @@
                         <div class="field">
                         	<label for="employee_type" class="required">Are you a(n):</label>
 							<select name="employee_type" id="employee_type" maxlength="20" >
-                            	<option value="1">Owner</option>
-                                <option value="2">Manager</option>
-                                <option value="3">Other Employee</option>
+                            	<option value="2">Owner</option>
+                                <option value="3">Manager</option>
+                                <option value="4">Other Employee</option>
                             </select>
                         </div>
 					</fieldset>
@@ -94,6 +81,4 @@
 				</form>			
 			</div>
 		 </div>
-        <div id="footer"><a href="http://www.aszx.net" target="_blank">web development</a> by <a target="_blank" href="http://www.bryantsmith.com">bryant smith</a></div>
-</body>
-</html>
+         <?php require_once("footer.php"); ?>

@@ -1,39 +1,12 @@
- <!--
-Design by Bryant Smith
-http://www.bryantsmith.com
-http://www.aszx.net
-email: template [-at-] bryantsmith [-dot-] com
-Released under Creative Commons Attribution 2.5 Generic.  In other words, do with it what you please; but please leave the link if you'd be so kind :)
+<?php
+	require_once("conf.php");
+?>
 
-Name       : An Ocean of Sky
-Description: One column, with top naviation.  All divs, validations: XHTML Strict 1.0 & CSS
-Version    : 1.0
-Released   : 20081009
--->
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/raleighnights.css" />
 <title>Raleigh Nights</title>
+	<?php require_once("welcome-login.php"); ?>
 </head>
-
 <body>
-    <div id="page">
-        <div class="topNaviagationLink"><a href="index.php">Home</a></div>
-        <div class="topNaviagationLink"><a href="raleigh-restaurants-and-bars.php">Claim Your Business</a></div>
-        <div class="topNaviagationLink"><a href="index.html">Drink Specials</a></div>
-        <div class="topNaviagationLink"><a href="index.html">Food Specials</a></div>
-	    <div class="topNaviagationLink"><a href="index.html">Events</a></div>
-	</div>
-    <div id="mainPicture">
-    	<div class="picture">
-        	<div id="headerTitle">Raleigh Nights</div>
-            <div id="headerSubtext">Connecting Restaurants and Bars with their Patrons</div>
-        </div>
-    </div>
+    <?php require_once("navigation.php"); ?>
         <div class="contentBox">
     	<div class="innerBox">
         	<div class="contentTitle">The Title of an Article</div>
@@ -55,6 +28,4 @@ Released   : 20081009
         </div>
 
     </div>
-        <div id="footer"><a href="http://www.aszx.net" target="_blank">web development</a> by <a target="_blank" href="http://www.bryantsmith.com">bryant smith</a></div>
-</body>
-</html>
+        <?php require_once("footer.php"); ?>
