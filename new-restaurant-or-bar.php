@@ -18,7 +18,7 @@
                 <p>After you enter in your information, you will receive a call at your
                 place of business with a confirmation code. You can use your email and the confirmation code to log in and start interacting
                 with your patrons!</p> <br />
-            <form action="new-restaurant-process.php"onsubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
+            <form action="new-restaurant-process.php" onsubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Personal Information</legend>
@@ -40,11 +40,11 @@
 						</div>
                         <div class="field">
 							<label for="password" class="required">Password:</label>
-							<input type="text" name="password" id="password" maxlength="100" class="large email textfield required" value="" required />
+							<input name="password" id="password" type="password" required/>
 						</div>
                         <div class="field">
 							<label for="conf_password" class="required">Retype Password:</label>
-							<input type="text" name="conf_password" id="conf_password" maxlength="100" class="large email textfield required" value="" required />
+							<input name="conf_password" id="conf_password" type="password" required/>
 						</div>
                          <div class="field">
                         	<label for="employee_type" class="required">Are you a(n):</label>

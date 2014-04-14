@@ -11,8 +11,15 @@
     	<div class="innerBox">
         	<div class="contentTitle">Thanks for claiming your business!</div>
             <?php
+			if ( isset($_POST['submit']) ) {
+				$_SESSION['firm_id'] = $_POST['submit'];
+			} else if ( !isset($_SESSION['firm_id'] )) {
+				ob_clean();
+				header("Location: raleigh-restaurants-and-bars.php");
+				exit();
+			}
             $conn =  new mysqli('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
-			$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f WHERE f.firm_id = ".$_POST['submit'];
+			$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f WHERE f.firm_id = ".$_SESSION['firm_id'];
 			//echo $query
 			$result = $conn->query($query);
 			if( $row = $result->fetch_assoc() ) {
@@ -21,8 +28,10 @@
             	<br />
             	<p>Thank you for claiming <em><strong><?php echo $row['name']?></strong></em>! To ensure that no one falsely claims your business, we will call 
                 your restaurnt or bar and give a confirmation code that you can use to log on with. After the claim process is finished, you will be able to completely 
-                edit your business. Please only enter in a new phone number if the current business phone number is incorrect. The phone number must be the place of 
-                business. Once you get the confirmation code, you will be able to log on using the email that you enter with the confirmation code.</p> <br />
+                edit your business drink specials, food specials, events, and general contact information. Please only enter in a new phone number if the current 
+                business phone number, listed below, is incorrect. The phone number must be the place of business. Immediately after this you will be able to log on 
+                using your email as your username and your chosen password. Once you have received the confirmation code, log on and use it to finish 
+                the claim process.</p> <br />
               <table>
               	<tr>
                 	<th>Business Name</th>
@@ -46,7 +55,7 @@
                 ?>
             </table>
             <br />
-            <form action="raleigh-businesses-claim-process.php" method="post" id="claim-me">
+            <form action="raleigh-businesses-claim-process.php" onsubmit="return validateForm()" method="post" id="claim-me">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Contact Information</legend>
@@ -74,11 +83,29 @@
                                 <option value="4">Other Employee</option>
                             </select>
                         </div>
+                        <div class="field">
+							<label for="password" class="required">Password:</label>
+							<input name="password" id="password" type="password" required/>
+						</div>
+                        <div class="field">
+							<label for="conf_password" class="required">Retype Password:</label>
+							<input name="conf_password" id="conf_password" type="password" required/>
+						</div>
+                        <input type="hidden" name="firm_id" value="<?php echo $_SESSION['firm_id'];?>" />
 					</fieldset>
 					<div class="buttons">
 						<input type="submit" name="submit" id="submit" class="submit" value="Submit" />
 					</div>
-				</form>			
+				</form>	
+                <script>
+				 function validateForm() {
+					if (password.value != conf_password.value) { 
+					   alert("Your password and confirmation password do not match.");
+					   cpassword.focus();
+					   return false; 
+					}
+				}
+				</script>			
 			</div>
 		 </div>
          <?php require_once("footer.php"); ?>

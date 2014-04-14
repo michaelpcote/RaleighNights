@@ -45,8 +45,6 @@
 			?>
             <div class="contentText">
             	<br />
-            	<p>Please ensure that all of the information for <em><strong><?php echo $name?></strong></em> is correct! Use the navigation at the top
-                of the page to edit the drink specials, food specials, and events at your restaunt</p> <br />
                 <?php if ( $verified ) { ?>
                 	<p>Congratulations, <em><strong><?php echo $name?></strong></em> has been verified! You should be able to see it on the Raleigh Nights app.</p><br />
                 <?php } else { ?>
@@ -54,6 +52,9 @@
                     but will be unable to see <?php echo $name?> on Raleigh Nights yet. If you think that this is taking longer than it should, please feel
                     free to <a href="contact-us.php">contact us</a> and we will respond as quickly as we can!</p><br />
                 <?php } ?>
+            	<p>Please ensure that all of the information for <em><strong><?php echo $name?></strong></em> is correct! Use the navigation at the top
+                of the page to edit the drink specials, food specials, and events at your restaunt</p> <br />
+                
             <form action="raleigh-businesses-edit-process.php" method="post" id="claim-me">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>

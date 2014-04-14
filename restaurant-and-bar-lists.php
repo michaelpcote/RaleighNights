@@ -47,7 +47,7 @@
                     echo "<td>".$row['address']."</td>";
                     echo "<td>".$row['city']."</td>";
 					if ( $row['verified'] == 0 ) {
-                   		echo "<td><input type='button' onClick = 'verifyClick(".$row['firm_id'].")' value='Verified'</input></td>";
+                   		echo "<td><input type='button' onClick = 'verifyClick(".$row['firm_id'].")' value='Verify'</input></td>";
                     	echo "<td>Verify First</td>";
 					} else {
 						echo "<td>Verified</td>";
