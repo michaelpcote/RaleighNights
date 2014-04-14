@@ -19,12 +19,13 @@
 			$result = $conn->query($query);
 			if( $row = $result->fetch_assoc() ) {
 				$name = Common::checkString($row['name']);
+				$_SESSION['name'] = $name;
 				$website = Common::checkString($row['website']);
 				$phone = Common::checkString($row['phone']);
 				$address = Common::checkString($row['address']);
 				$city = Common::checkString($row['city']);
 				$state = Common::checkString($row['state']);
-				$zip = Common::checkString($row['name']);
+				$zip = Common::checkString($row['zip']);
 				$monday_open = Common::checkString($row['monday_open']);
 				$monday_close = Common::checkString($row['monday_close']);
 				$tuesday_open = Common::checkString($row['tuesday_open']);

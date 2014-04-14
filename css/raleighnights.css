@@ -69,7 +69,16 @@ body {
   overflow: hidden; 
   width: 670px;
 }
+/* Events border */
 
+div.special_event
+{
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+background:#dddddd;
+width:300px;
+border-radius:25px;
+}
 .topNaviagationLink
 {
 text-align:center;
@@ -166,6 +175,11 @@ height:345px;
 background-color:#FFFFFF;
 }
 
+.android {
+	position:fixed;
+	left: 150px;
+	top: 250px;
+}
 
 #mainPicture .picture
 {

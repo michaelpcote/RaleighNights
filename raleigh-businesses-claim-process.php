@@ -68,7 +68,6 @@
 				$stmt->bind_param("ssssis", $_POST['email'], hash('sha256',$_POST['password']), $_POST['first_name'], $_POST['last_name'], $_POST['employee_type'], 
 																																				  $phone );
 				$stmt->execute();
-				exit();
 			}
 		}
 	} 

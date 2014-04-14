@@ -1,3 +1,3 @@
-<div id="footer"><a href="http://www.aszx.net" target="_blank">web development</a> by <a target="_blank" href="http://www.bryantsmith.com">bryant smith</a></div>
+<div id="footer"><a href="https://play.google.com/store/apps/details?id=info.raleighnights" target="_blank">Raleigh Nights by The Cote' Group, LLC</a></div>
 </body>
 </html>

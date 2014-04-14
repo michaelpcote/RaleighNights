@@ -8,6 +8,13 @@
                 <li><a href="admin-edit-food-specials.php">Edit Food</a></li>
                 <li><a href="edit-food-specials.php">Food Specials</a></li>
                 <li><a href="admin-edit-events.php">Edit Events</a></li>
+                <li><a href="admin-edit-special-events.php">Special Events</a>
+                	<ul>
+                        <li><a href="admin-previous-special-events-list.php">Edit Previous Special Event</a></li>
+                        <li><a href="admin-upcoming-special-events-list.php">Edit Upcoming Special Event</a></li>
+                        <li><a href="add-new-special-event.php">And New Special Event</a></li>
+                    </ul>
+                </li>
                 <li><a href="admin-verify-business.php">Verify Business</a></li>
                 <li><a href="admin-verifiy-person.php">Verify Individual</a></li>
             </ul>
@@ -20,8 +27,14 @@
                 <li><a href="restaurant-and-bar-lists.php">Your Places</a></li>
                 <li><a href="edit-drink-specials.php">Drink Specials</a></li>
                 <li><a href="edit-food-specials.php">Food Specials</a></li>
-                <li><a href="edit-events.php">Events</a></li>
-                <li><a href="edit-special-events.php">Upcoming events</a></li>
+                <li><a href="edit-events.php">Reocurring Events</a></li>
+                <li><a href="edit-special-events.php">Special Events</a>
+                	<ul>
+                        <li><a href="previous-special-events-list.php">Edit Previous Special Event</a></li>
+                        <li><a href="upcoming-special-events-list.php">Edit Upcoming Special Event</a></li>
+                        <li><a href="add-new-special-event.php">And New Special Event</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     <?php } else { ?> <!--
@@ -33,7 +46,6 @@
         <div id="navcontainer">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="raleigh-restaurants-and-bars.php">Claim a Business</a></li>
                 <li><a href="raleigh-drink-specials.php">Drink Specials</a>
                 	<ul>
                         <li><a href="raleigh-drink-specials-monday.php">Monday Drink Specials</a></li>
@@ -56,7 +68,7 @@
                         <li><a href="raleigh-food-specials-sunday.php">Sunday Food Specials</a></li>
                 	</ul>
                 </li>
-                <li><a href="raleigh-food-specials.php">Raleigh Events</a>
+                <li><a href="events-in-raleigh.php">Raleigh Events</a>
                 	<ul>
                         <li><a href="events-in-raleigh-monday.php">Monday Events</a></li>
                         <li><a href="events-in-raleigh-tuesday.php">Tuesday Events</a></li>
@@ -67,7 +79,8 @@
                         <li><a href="events-in-raleigh-sunday.php">Sunday Events</a></li>
                 	</ul>
                 </li>
-                <li><a href="upcoming-events-in-raleigh">Upcoming Events</a></li>
+                <li><a href="upcoming-events-in-raleigh.php">Upcoming Events</a></li>
+                <li><a href="raleigh-restaurants-and-bars.php">Owners Tab</a></li>
             </ul>
         </div>
     <?php } ?>
