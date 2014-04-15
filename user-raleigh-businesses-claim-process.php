@@ -1,5 +1,6 @@
 <?php
 	require_once('conf.php');
+	require_once('Mail.php');
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 	/*
@@ -45,6 +46,15 @@
 }*/
 	$conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
 	$user_firm = "INSERT INTO user_firms ( email, firm_id, confirmation_code ) VALUES ( ?, ?, ? )";
+	$firm = "SELECT f.name FROM firm f WHERE f.firm_id = ".$_POST['submit'];
+	$result = $conn->query($firm); 
+	if ( $row = $result->fetch_assoc() ) {
+		$firm_name = $row['name']; 
+		$subject = "New user for ".$firm_name;
+		$to = array( 'michaelpcote@gmail.com', 'aisneddo@ncsu.edu', 'raleighnights@gmail.com' );
+		$email = $_SESSION['first_name'].' '.$_SESSION['last_name']." with email ".$_SESSION['email'].' would like to be verified for '.$firm_name;
+		Mail::sendEmail( $to, $subject, $email ); 
+	} 
 	if ( isset( $_SESSION['email'] ) ) {
 		$valid = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$code = Common::get_random_string($valid, 5);

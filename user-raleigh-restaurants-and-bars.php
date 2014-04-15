@@ -51,7 +51,7 @@
               </table>
          </form>
          <br />
-        <a class="new_business" href="new-restaurant-or-bar.php">Add a new restaurant or bar</a></div>
+        <a class="new_business" href="user-new-restaurant-or-bar.php">Add a new restaurant or bar</a></div>
 		</div>
 	</div>
          <?php require_once("footer.php"); ?>

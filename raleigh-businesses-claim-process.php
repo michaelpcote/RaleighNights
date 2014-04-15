@@ -1,5 +1,6 @@
 <?php
-	require_once('Common.php');
+	require_once('conf.php');
+	require_once('Mail.php');
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 	if ( $_POST['password'] != $_POST['conf_password'] ) {
@@ -53,7 +54,15 @@
 	$query_user = "INSERT INTO users ( email, password, first_name, last_name, user_type, phone ) VALUES ( ?, ?, ?, ?, ?, ? )";
 	$select_user = "SELECT email FROM users where email = ?";
 	$user_firm = "INSERT INTO user_firms ( email, firm_id, confirmation_code ) VALUES ( ?, ?, ? )";
-	
+	$firm = "SELECT f.name FROM firm f WHERE f.firm_id = ".$_SESSION['firm_id'];
+	$result = $conn->query($firm); 
+	if ( $row = $result->fetch_assoc() ) {
+		$firm_name = $row['name']; 
+		$subject = "New user for ".$firm_name;
+		$to = array( 'michaelpcote@gmail.com', 'aisneddo@ncsu.edu', 'raleighnights@gmail.com' );
+		$email = $_POST['first_name'].' '.$_POST['last_name']." with email ".$_POST['email'].' would like to be verified for '.$firm_name;
+		Mail::sendEmail( $to, $subject, $email ); 
+	} 
 	if ( $stmt = mysqli_prepare($conn, $select_user) ) {
 		$stmt->bind_param("s", $_POST['email'] );
 		$stmt->execute();
