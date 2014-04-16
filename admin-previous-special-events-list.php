@@ -1,30 +1,26 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Special Events in Raleigh</title>
+	
 </head>
 <body>
-    <?php 
-	if ( !isset( $_SESSION['email'] ) ) {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-		exit();
-	}
-	require_once("navigation.php"); ?>
-    	<div class="contentBox">
+	
+        <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Restaurants and Bars in Raleigh</div>
+        	<div class="contentTitle">Special Events in Raleigh</div><br />
             <?php
+			$conn =  Common::getConn();
 			$date = date('Y-m-d');
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
 			$query = "SELECT se.event_id, se.event_name, se.event_date, se.short_description, f.name FROM special_events se, firm f ";
 			$query .= "WHERE f.firm_id = se.firm_id AND se.event_date < '".$date."'";
 			$result = $conn->query($query);
 			?>
           <div class="contentText"><br />
           <p>This is a list of all the special events that have already ocurred. It's primarily designed so that you can simply change the date of an event
-          that you may have on a regular basis.</p>
+          that you may have on a semi-regular basis.</p>
           <br />
           <form action="admin-edit-upcoming-special-events.php" method="post" id="claim-me">
               <table>
@@ -54,4 +50,4 @@
         
 		</div>
 	</div>
-         <?php require_once("footer.php"); ?>
+         <?php require_once("styling/footer.php"); ?>

@@ -1,23 +1,22 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); ?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Raleigh Drink Specials - Thursday</title>
+	
 </head>
 <body>
-	<?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
         	<div class="contentTitle">Thursday Raleigh Drink Specials</div><br />
             <?php
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
 			$query = "SELECT f.firm_id, f.name, f.website, f.address, f.city, f.state, f.zip, ds.long_description, ds.short_description FROM firm f, thursday_drink_specials ds ";
 			$query .= "WHERE f.verified = 1 AND f.firm_id = ds.firm_id ORDER BY f.name";
 			$result = $conn->query($query);
 			?>
           <div class="contentText">
-          <p>Raleigh Nights is pleased to present you with a list of Raleigh drink specials! This is the Thursday list, so if you want to see another day please select
+          <p>Raleigh Nights is pleased to present you with a list of Raleigh drink specials! These are the drink specials from Thursday, so if you want to see 
+          another day please select
           from the drink specials drop down menu. If you are a bar owner and you don't see your special on here, please log
           in and add it! Thanks for visiting Raleigh Nights, the number one place to find drink specials in Raleigh.</p>
           <br />
@@ -57,12 +56,8 @@
                 ?>
               </table>
               <br />
-              <input type="submit" value="Submit">
-              <br />
-         </form>
-         <br />
-        </div>
+         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

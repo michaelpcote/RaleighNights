@@ -1,26 +1,24 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Raleigh Restaurant and Bar Verification</title>
+	
 </head>
 <body>
-	<?php if ( $_SESSION['user_type'] != 1 ) {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-	}
-    require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Restaurants and Bars in Raleigh</div>
+        	<div class="contentTitle">Raleigh Restaurants and Bar Verification</div><br />
             <?php
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
 			$query = "SELECT f.firm_id, f.name, f.phone, f.website, f.address, f.city FROM firm f WHERE f.verified = 0 ORDER BY f.name";
 			$result = $conn->query($query);
 			?>
           <div class="contentText">
-          <p>This page will enable you to edit the food specials for your bar or restuarant. If you do not see the business that you are attempting to edit,
-          then <a href="new-restaurant-or-bar.php">Add a new restaurant or bar here</a></p>
+          <p>This page will display every restaurant and bar in Raleigh that has not yet been verified. If you need to delete a business please
+          <a href="admin-restaurant-and-bar-lists.php">delete the business</a> here.</p>
           <br />
           <script>
 				function editClick(value) {
@@ -39,8 +37,8 @@
 					form.submit();
 				}
 		  </script>
-          <form action="verify-business-process.php" method="post" id="delete">
-          	<legend>Delete or Edit Businesses</legend>
+          <form action="direct/verify-business-process.php" method="post" id="delete">
+          	<legend>Verify Businesses</legend>
               <table>
                 <tr>
                     <th>Business Name</th>
@@ -71,6 +69,6 @@
          <br />
         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

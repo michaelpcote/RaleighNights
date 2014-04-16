@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-	$conn =  new mysqli('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+	$conn =  new mysqli('ec2-54-186-207-86.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
 	date_default_timezone_set('America/New_York');
 	$date = date('Y-m-d');
 	$day = $_POST['day'];

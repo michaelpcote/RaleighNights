@@ -1,24 +1,25 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Edit Your Information</title>
+	
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
-    
+	
         <div class="contentBox">
     	<div class="innerBox">
         	<div class="contentTitle">Edit Your Bar or Restaurant Information</div>
             <?php
 			$_SESSION['firm_id'] = $_POST['firm_id'];
-            $conn =  new mysqli('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
 			$query = "SELECT * FROM firm f WHERE f.firm_id = ".$_POST['firm_id'];
 			//echo $query
 			$result = $conn->query($query);
 			if( $row = $result->fetch_assoc() ) {
 				$name = Common::checkString($row['name']);
+				$_SESSION['name'] = $name;
 				$website = Common::checkString($row['website']);
 				$phone = Common::checkString($row['phone']);
 				$address = Common::checkString($row['address']);
@@ -47,7 +48,7 @@
             	<br />
             	<p>Please ensure that all of the information for <em><strong><?php echo $name?></strong></em> is correct! Use the navigation at the top
                 of the page to edit the drink specials, food specials, and events at your restau</p> <br />
-            <form action="admin-raleigh-businesses-edit-process.php" method="post" id="claim-me">
+            <form action="direct/admin-raleigh-businesses-edit-process.php" method="post" id="claim-me">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Current <?php echo Common::checkString($row['name']); ?> Information</legend>
@@ -202,5 +203,5 @@
 				</form>			
 			</div>
 		 </div>
-         <?php require_once("footer.php"); ?>
+         <?php require_once("styling/footer.php"); ?>
         

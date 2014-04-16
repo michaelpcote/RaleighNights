@@ -1,16 +1,15 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); ?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Raleigh Food Specials - Thursday</title>
+	
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Thanks for claiming your business!</div>
+        	<div class="contentTitle">Thanks for claiming your business!</div><br />
             <?php
+            $conn =  Common::getConn();
 			if ( isset($_POST['submit']) ) {
 				$_SESSION['firm_id'] = $_POST['submit'];
 			} else if ( !isset($_SESSION['firm_id'] )) {
@@ -18,8 +17,7 @@
 				header("Location: raleigh-restaurants-and-bars.php");
 				exit();
 			}
-            $conn =  new mysqli('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
-			$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f WHERE f.firm_id = ".$_SESSION['firm_id'];
+            $query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f WHERE f.firm_id = ".$_SESSION['firm_id'];
 			//echo $query
 			$result = $conn->query($query);
 			if( $row = $result->fetch_assoc() ) {
@@ -55,7 +53,7 @@
                 ?>
             </table>
             <br />
-            <form action="raleigh-businesses-claim-process.php" onsubmit="return validateForm()" method="post" id="claim-me">
+            <form action="direct/raleigh-businesses-claim-process.php" onSubmit="return validateForm()" method="post" id="claim-me">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Contact Information</legend>
@@ -108,4 +106,4 @@
 				</script>			
 			</div>
 		 </div>
-         <?php require_once("footer.php"); ?>
+         <?php require_once("styling/footer.php"); ?>

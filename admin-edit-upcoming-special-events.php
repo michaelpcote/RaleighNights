@@ -1,21 +1,21 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-	 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	 <?php require_once("welcome-login.php"); ?>
+<title>Special Events in Raleigh</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </head>
 <body>
-	 <?php 
-	if ( !isset( $_SESSION['email'] ) ) {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-		exit();
-	}
-	require_once("navigation.php"); 
-   	$conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+	
+        <div class="contentBox">
+    	<div class="innerBox">
+        	<div class="contentTitle">Special Events in Raleigh</div><br />
+            <?php
+			$conn =  Common::getConn();
+			
 	$query = "SELECT se.event_name, se.event_date, se.event_time, se.short_description, se.long_description, f.name FROM special_events se, ";
 	$query .= "firm f WHERE se.event_id = ".$_POST['submit']." AND se.firm_id = f.firm_id";
 	$result = $conn->query($query);
@@ -30,7 +30,7 @@
           <div class="contentText">
           <p>Edit your upcoming event!</p>
           <br />
-          	<form action="admin-edit-special-event-process.php" method="post" id="add-new">
+          	<form action="direct/admin-edit-special-event-process.php" method="post" id="add-new">
               <p>Fields marked <span class="required">bold</span> are required.</p>
               <fieldset>
                 <legend>Add an event for <?php echo $row['name'] ?></legend>
@@ -68,6 +68,6 @@
          <br />
         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

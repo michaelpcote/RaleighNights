@@ -101,9 +101,16 @@
 			$stmt->execute();
 		}
 	}
+	$address = $_POST['address'].', '.$_POST['city'].', '.$_POST['state'].' '.$_POST['zip'];
+	echo $address;
+	$output = Common::getLatLong($address);
+	echo $output[0];
+	echo $output[1];
 	$valid = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$code = Common::get_random_string($valid, 5);
 	echo $code;
+	
+	/*
 	if ( $stmt = mysqli_prepare($conn, $user_firm) ) {
 		$stmt->bind_param("sss", $_POST['email'], $firm_id, $code );
 		$stmt->execute();
@@ -113,7 +120,7 @@
 		header("Location: ".$_SERVER['HTTP_REFERER']);
 		mysqli_close($conn);
 		exit();
-	}
+	} */
 	
 	function insert( $string, $i ) {
 		switch ($i) {

@@ -1,21 +1,19 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Edit Raleigh Food Specials</title>
+	
 </head>
 <body>
-	<?php if ( $_SESSION['user_type'] != 1 ) {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-	}
-    require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Edit Food Specials</div>
+        	<div class="contentTitle">Edit Raleigh Food Specials</div><br />
             <?php
 			if ( isset($_SESSION['firm_id'])) {
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+			$conn =  Common::getConn();
 			$query = "SELECT f.name, mon.long_description AS mon_ld, tues.long_description AS tues_ld, wed.long_description AS wed_ld, ";
 			$query .= "thurs.long_description AS thurs_ld, fri.long_description AS fri_ld, sat.long_description AS sat_ld, ";
 			$query .= "sun.long_description AS sun_ld, mon.short_description AS mon_sd, tues.short_description AS tues_sd, ";
@@ -55,7 +53,7 @@
             }
             mysqli_close($conn);
         ?>
-        <form action="admin-edit-specials-process.php" method="post" id="delete">
+        <form action="direct/admin-edit-specials-process.php" method="post" id="delete">
         	<fieldset>
                 <legend>Edit food Specials for <?php echo $name ?></legend>
                 <div class="field">
@@ -127,6 +125,6 @@
         
 		</div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

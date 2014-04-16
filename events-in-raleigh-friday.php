@@ -1,27 +1,26 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); ?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Events in Raleigh - Friday</title>
+	
 </head>
 <body>
-	<?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Events in Raleigh - Friday</div><br />
+        	<div class="contentTitle">Friday Raleigh Events</div><br />
             <?php
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
 			$query = "SELECT f.firm_id, f.name, f.website, f.address, f.city, f.state, f.zip, ds.long_description, ds.short_description FROM firm f, friday_events ds ";
 			$query .= "WHERE f.verified = 1 AND f.firm_id = ds.firm_id ORDER BY f.name";
 			$result = $conn->query($query);
 			?>
           <div class="contentText">
-          <p>Raleigh Nights is pleased to present you with a list of events in Raleigh! These are all recurring events such as a trivia night or a karaoke night
-          but we also have a list of upcoming special events as well, so please feel free to look at those as well! These are the events in Raleigh for Friday, 
-          but we also have the events for every other day of the week. If you want to see a particular day please select
-          from the events drop down menu. If you are a bar owner and you don't see your event on here, please log
-          in and add it! Thanks for visiting Raleigh Nights, the number one place to find events in Raleigh.</p>
+          <p>Raleigh Nights is pleased to present you with a list of events in Raleigh! These are the recurring events such as a trivia night or a karaoke night. We also
+          have a list of upcoming special events though, so please feel free to look at those as well! These are the events in Raleigh for Friday, but we also have 
+          the events for every day of the week. If you want to see a particular day please select
+          from the Raleigh events drop down menu. If you are a bar owner and you don't see your event on here, please log
+          in and add it or, if you aren't a member yet, use the <a href="raleigh-restaurants-and-bars.php">owners tab</a>! Thanks for 
+          visiting Raleigh Nights, the number one place to find fun events in Raleigh.</p>
           <br />
           <table>
             <tr>
@@ -59,12 +58,8 @@
                 ?>
               </table>
               <br />
-              <input type="submit" value="Submit">
-              <br />
-         </form>
-         <br />
-        </div>
+         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

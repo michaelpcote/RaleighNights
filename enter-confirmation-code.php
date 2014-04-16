@@ -1,16 +1,18 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( !isset($_SESSION['user_type']) ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Claim your Raleigh Business</title>
+	
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<?php 
-				$conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+        	<div class="contentTitle">Finish the Claim Process</div><br />
+            <?php
+            $conn =  Common::getConn();
 				$query = "SELECT f.name FROM firm f WHERE f.firm_id = ?";
 				if ( $stmt = mysqli_prepare($conn, $query) ) {
 					$stmt->bind_param("i", $_POST['firm_id'] );
@@ -25,8 +27,8 @@
         	<div class="contentTitle">Log in to Raleigh Nights</div>
             <div class="contentText">
             	<br />
-                <p>Please enter the confirmation code for <?php echo $name?></p> <br />
-            <form action="enter-confirmation-code-process.php" method="post" id="log-in">
+                <p>Please enter the confirmation code for <em><strong><?php echo $name?></strong></em></p> <br />
+            <form action="direct/enter-confirmation-code-process.php" method="post" id="log-in">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Confirmation Code</legend>
@@ -42,4 +44,4 @@
 				</form>			
 			</div>
 		 </div>
-<?php require_once("footer.php"); ?>
+<?php require_once("styling/footer.php"); ?>

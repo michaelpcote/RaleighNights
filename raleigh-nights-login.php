@@ -1,20 +1,17 @@
-<?php
-	require_once("conf.php");
-?>
-
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<?php require_once('styling/styling.php'); ?>
+<title>Raleigh Nights Login</title>
+	
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
+    
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Log in to Raleigh Nights</div>
+        	<div class="contentTitle">Log In</div>
             <div class="contentText">
             	<br />
                 <p>Please log in to Raleigh Nights to edit your restaurant or bar! If you don't have an account yet or want to claim another
                 restaurnt or bar, please follow <a href="raleigh-restaurants-and-bars.php">this link</a></p> <br />
-            <form action="log-in-process.php" method="post" id="log-in">
+            <form action="direct/log-in-process.php" method="post" id="log-in">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Log In</legend>
@@ -33,4 +30,4 @@
 				</form>			
 			</div>
 		 </div>
-<?php require_once("footer.php"); ?>
+<?php require_once("styling/footer.php"); ?>

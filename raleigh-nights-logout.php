@@ -1,7 +1,7 @@
 <?php
-	require_once("conf.php");
+	require_once('conf/conf.php');
 	session_destroy();
-	header("Location: index.php");
+	header("Location: ".URL."index.php");
 	exit();
 ?>
 

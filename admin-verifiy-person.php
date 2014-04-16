@@ -1,22 +1,18 @@
-<?php
-	require_once("conf.php");
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>User Verification</title>
+	
 </head>
 <body>
-	<?php if ( $_SESSION['user_type'] != 1 ) {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-	}
-    require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Edit Events</div>
+        	<div class="contentTitle">User Verification</div><br />
             <?php
-			$conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
 			$query = "SELECT uf.firm_id, uf.email, u.first_name, u.last_name, u.user_type, f.name, f.phone, uf.sent_confirmation, uf.confirmation_code, ut.description ";
 			$query .= "FROM user_firms uf, firm f, users u, user_type ut WHERE uf.verified = 0 AND uf.email = u.email AND uf.firm_id = f.firm_id AND u.user_type = ut.user_type";
 			$result = $conn->query($query);
@@ -25,7 +21,7 @@
           <p>This page allows administrators to call verify that a user is associated with an account</p><br />
           
           
-        <form action="verify-individual-process.php" method="post" id="delete">
+        <form action="direct/verify-individual-process.php" method="post" id="delete">
         	<fieldset>
             	<br />
                 <?php
@@ -77,6 +73,6 @@
          <br />
         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

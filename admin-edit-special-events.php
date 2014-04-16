@@ -1,21 +1,22 @@
-<?php
-	require_once("conf.php");
-?>
-
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
+<title>Special Events in Raleigh</title>
+	
 </head>
 <body>
-	<?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Edit Special Events</div>
+        	<div class="contentTitle">Special Events in Raleigh</div>
             <div class="contentText">
           <p>The events listed here should be special events. If for example, you have a band coming or are hosting an event for pediatric cancer, those events 
-          should be listed here. If you have a reocurring event upcoming, like a band, please add <a href=”edit-events.php”>your reocurring event here.</a> </p>
+          should be listed here. If you have a reocurring event you would like to add, like karaoke night or trivia night, 
+          please add <a href=”edit-events.php”>your reocurring event here.</a> </p>
           
 		</div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

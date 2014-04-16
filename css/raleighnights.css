@@ -260,6 +260,7 @@ font-size:9px;
 font-family:Arial, Helvetica, sans-serif;
 color:#386172;
 padding-top:5px;
+z-index:1;
 }
 
 table, td, th
@@ -280,6 +281,7 @@ color:white;
 text-decoration:none;
 font-size:9px;
 color:#386172;
+z-index:1;
 }
 
 html, body {

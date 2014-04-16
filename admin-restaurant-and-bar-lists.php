@@ -1,31 +1,23 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( $_SESSION['user_type'] != 1 ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Raleigh Restaurant and Bars</title>
+	
 </head>
 <body>
-	<?php if ( $_SESSION['user_type'] != 1 ) {
-		header("Location: ".$_SERVER['HTTP_REFERER']);
-	}
-    require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Restaurants and Bars in Raleigh</div>
+        	<div class="contentTitle">Raleigh Restaurants and Bars</div><br />
             <?php
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
-			$query = "";
-			if ( $_SESSION['user_type'] == 1 ) {
-				$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f ORDER BY f.name";
-			} else {
-				$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f, user_firms uf WHERE f.verified = 1 AND ";
-				$query .= "uf.email = 'michaelpcote@gmail.com' AND f.firm_id = uf.firm_id ORDER BY f.name";
-			}
+            $conn =  Common::getConn();
+			$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f ORDER BY f.name";
 			$result = $conn->query($query);
 			?>
           <div class="contentText">
-          <p>This page will enable you to edit the food specials for your bar or restuarant. If you do not see the business that you are attempting to edit,
+          <p>This page will enable you to select the Raleigh bar or restaurant to edit. If you do not see the business that you are attempting to edit,
           then <a href="new-restaurant-or-bar.php">Add a new restaurant or bar here</a></p>
           <br />
           <script>
@@ -75,6 +67,6 @@
          <br />
         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 

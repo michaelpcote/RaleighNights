@@ -1,15 +1,11 @@
-<?php
-	require_once("conf.php");
-?>
-
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<?php require_once('styling/styling.php'); ?>
+<title>Add a new Raleigh Restaurant</title>
+	
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
-        <div class="contentBox">
+   	<div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Create a new Raleigh Nights bar or restaurant</div>
+        	<div class="contentTitle">Add a new Raleigh Restaurant or Bar</div>
             <div class="contentText">
             	<br />
             	<p>Thank you for being a part of Raleigh Nights! If you are a new user, please fill out all of the information below. If you
@@ -18,7 +14,7 @@
                 <p>After you enter in your information, you will receive a call at your
                 place of business with a confirmation code. You can use your email and the confirmation code to log in and start interacting
                 with your patrons!</p> <br />
-            <form action="new-restaurant-process.php" onsubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
+            <form action="direct/new-restaurant-process.php" onSubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Personal Information</legend>
@@ -165,4 +161,4 @@
 				</script>		
 			</div>
 		 </div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>

@@ -1,17 +1,15 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); ?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Restaurants and Bars in Raleigh</title>
+	
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Restaurants and Bars in Raleigh</div>
+        	<div class="contentTitle">Raleigh Restaurant and Bars</div><br />
             <?php
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
 			$query = "SELECT f.firm_id, f.name, f.phone, f.address, f.city, f.state, f.zip FROM firm f WHERE f.verified = 1 ORDER BY f.name";
 			$result = $conn->query($query);
 			?>
@@ -50,4 +48,4 @@
         <a class="new_business" href="new-restaurant-or-bar.php">Add a new restaurant or bar</a></div>
 		</div>
 	</div>
-         <?php require_once("footer.php"); ?>
+         <?php require_once("styling/footer.php"); ?>

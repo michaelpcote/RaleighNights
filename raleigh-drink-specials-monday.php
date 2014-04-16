@@ -1,17 +1,16 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); ?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Raleigh Drink Specials - Monday</title>
+	
 </head>
 <body>
-	<?php require_once("navigation.php"); ?>
+	
         <div class="contentBox">
     	<div class="innerBox">
         	<div class="contentTitle">Monday Raleigh Drink Specials</div><br />
             <?php
-            $conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+            $conn =  Common::getConn();
+
 			$query = "SELECT f.firm_id, f.name, f.website, f.address, f.city, f.state, f.zip, ds.long_description, ds.short_description FROM firm f, monday_drink_specials ds ";
 			$query .= "WHERE f.verified = 1 AND f.firm_id = ds.firm_id ORDER BY f.name";
 			$result = $conn->query($query);
@@ -56,13 +55,9 @@
                 mysqli_close($conn);
                 ?>
               </table>
-              <br />
-              <input type="submit" value="Submit">
-              <br />
-         </form>
          <br />
         </div>
 	</div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
 
 
