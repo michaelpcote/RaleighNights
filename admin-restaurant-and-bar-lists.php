@@ -37,7 +37,7 @@ if ( $_SESSION['user_type'] != 1 ) {
 					form.submit();
 				}
 		  </script>
-          <form action="admin-business-delete-process.php" method="post" id="delete">
+          <form action="direct/admin-business-delete-process.php" method="post" id="delete">
           	<legend>Delete or Edit Businesses</legend>
               <table>
                 <tr>

@@ -49,7 +49,7 @@
 	$valid = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$code = Common::get_random_string($valid, 5);
 	if ( $stmt = mysqli_prepare($conn, $user_firm) ) {
-		$stmt->bind_param("sss", $_SESSION'email'], $firm_id, $code );
+		$stmt->bind_param("sss", $_SESSION['email'], $firm_id, $code );
 		$stmt->execute();
 		header("Location: ".URL."new-restaurant-thanks.php");
 	} else {
