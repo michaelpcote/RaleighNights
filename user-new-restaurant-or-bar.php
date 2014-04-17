@@ -1,15 +1,14 @@
-<?php
-	require_once("conf.php");
-?>
+<?php require_once('styling/styling.php'); 
+if ( !isset($_SESSION['user_type']) ) {
+	header("Location: ".$_SERVER['HTTP_REFERER']);
+}?>
 
-<title>Raleigh Nights</title>
-	<?php require_once("welcome-login.php"); ?>
+<title>Add a New Raleigh Restaurant or Bar</title>
 </head>
 <body>
-    <?php require_once("navigation.php"); ?>
-        <div class="contentBox">
+    <div class="contentBox">
     	<div class="innerBox">
-        	<div class="contentTitle">Create a new Raleigh Nights bar or restaurant</div>
+        	<div class="contentTitle">Create a new Raleigh Nights Bar or Restaurant</div>
             <div class="contentText">
             	<br />
             	<p>Thank you for being a part of Raleigh Nights! </p> <br />
@@ -119,4 +118,4 @@
 				</script>		
 			</div>
 		 </div>
-        <?php require_once("footer.php"); ?>
+        <?php require_once("styling/footer.php"); ?>
