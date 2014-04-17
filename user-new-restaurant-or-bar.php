@@ -16,7 +16,7 @@
                 <p>After you enter in your information, you will receive a call at your
                 place of business with a confirmation code. You can use your email and the confirmation code to log in and start interacting
                 with your patrons!</p> <br />
-            <form action="user-new-restaurant-process.php" onSubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
+            <form action="direct/user-new-restaurant-process.php" onSubmit="return validateForm()" method="post" id="add-a-new-restuant-or-bar">
         		<p>Fields marked <span class="required">bold</span> are required.</p>
 					<fieldset>
 						<legend>Business Information</legend>

@@ -1,10 +1,7 @@
 <?php
-	require_once('conf.php');
-	require_once('Mail.php');
-	error_reporting(E_ALL);
-	ini_set('display_errors', '1');
-	
-	$conn =  mysqli_connect('ec2-54-213-248-248.us-west-2.compute.amazonaws.com', 'root', '>Password1', 'Raleigh_Nights' );
+	require_once('../conf/conf.php');
+	require_once('../classes/Mail.php');
+	$conn =  Common::getConn();
 	$query_firm = "INSERT INTO firm ( firm_type, name, phone, address, city, state, zip ) VALUES ( ?, ?, ?, ?, ?, ?, ? )";
 	$user_firm = "INSERT INTO user_firms ( email, firm_id, confirmation_code ) VALUES ( ?, ?, ? )";
 	
@@ -55,7 +52,7 @@
 	if ( $stmt = mysqli_prepare($conn, $user_firm) ) {
 		$stmt->bind_param("sss", $_POST['email'], $firm_id, $code );
 		$stmt->execute();
-		header("Location: new-restaurant-thanks.php");
+		header("Location: ".URL."new-restaurant-thanks.php");
 	} else {
 		ob_clean();
 		header("Location: ".$_SERVER['HTTP_REFERER']);
